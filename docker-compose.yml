@@ -19,7 +19,7 @@ services:
       target: build
     command: pnpm dev --host 0.0.0.0
     ports:
-      - "3001:3000"
+      - "5173:5173"
     env_file:
       - .env
     environment:
@@ -27,4 +27,5 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
+      - /app/.tanstack
     restart: unless-stopped
