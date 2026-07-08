@@ -8,6 +8,7 @@ interface ImportMetaEnv {
   readonly VITE_ENABLE_ANALYTICS: string;
   readonly VITE_SENTRY_DSN?: string;
   readonly VITE_POSTHOG_KEY?: string;
+  readonly VITE_GOOGLE_CLIENT_ID?: string;
 }
 
 interface ImportMeta {

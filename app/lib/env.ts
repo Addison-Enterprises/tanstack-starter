@@ -14,6 +14,7 @@ const envSchema = z.object({
     .transform((v) => v === "true"),
   VITE_SENTRY_DSN: z.url().optional(),
   VITE_POSTHOG_KEY: z.string().optional(),
+  VITE_GOOGLE_CLIENT_ID: z.string().optional(),
 });
 
 export type Env = z.infer<typeof envSchema>;
@@ -27,6 +28,7 @@ function parseEnv(): Env {
     VITE_ENABLE_ANALYTICS: import.meta.env.VITE_ENABLE_ANALYTICS,
     VITE_SENTRY_DSN: import.meta.env.VITE_SENTRY_DSN,
     VITE_POSTHOG_KEY: import.meta.env.VITE_POSTHOG_KEY,
+    VITE_GOOGLE_CLIENT_ID: import.meta.env.VITE_GOOGLE_CLIENT_ID,
   };
 
   const result = envSchema.safeParse(raw);
