@@ -1,12 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useAuth } from "~/contexts/auth";
+import { useSession, authEnabled } from "~/contexts/auth";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
 function HomePage() {
-  const { authEnabled, status } = useAuth();
+  const { data: session, isPending } = useSession();
+  const status = isPending ? "loading" : session ? "authenticated" : "unauthenticated";
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center px-4">
@@ -76,6 +77,6 @@ const features = [
   },
   {
     title: "Auth Ready",
-    desc: "Auth context with stubs — wire to better-auth backend in minutes.",
+    desc: "Powered by better-auth — sign in, sign up, and session management out of the box.",
   },
 ];

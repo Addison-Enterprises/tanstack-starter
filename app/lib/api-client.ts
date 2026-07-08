@@ -54,11 +54,6 @@ async function request<T>(path: string, options: RequestOptions = {}): Promise<T
       "Content-Type": "application/json",
     };
 
-    const token = localStorage.getItem("auth_token");
-    if (token) {
-      headers["Authorization"] = `Bearer ${token}`;
-    }
-
     const res = await fetch(`${env.VITE_API_URL}${path}`, {
       ...init,
       headers: { ...headers, ...(init.headers as Record<string, string>) },
