@@ -1,0 +1,25 @@
+import js from "@eslint/js";
+import tseslint from "typescript-eslint";
+
+export default tseslint.config(
+  js.configs.recommended,
+  ...tseslint.configs.strictTypeChecked,
+  {
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+  },
+  {
+    ignores: [
+      "node_modules/",
+      "dist/",
+      ".output/",
+      "app/routeTree.gen.ts",
+      "eslint.config.js",
+      "vitest.config.ts",
+    ],
+  }
+);
