@@ -22,10 +22,11 @@
   ],
   "author": "Addison Enterprises",
   "license": "MIT",
+  "packageManager": "pnpm@11.5.0",
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "^11.5.0",
+      "version": "11.5.0",
       "onFail": "download"
     }
   },
